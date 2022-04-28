@@ -5,7 +5,7 @@ require 'sinatra/activerecord'
 
 # Создаем подключение к базе данных
 
-set :database, "sqlite:barbershop.db"
+set :database, {adapter: "sqlite3", database: "barbershop.db"}
 
 # Создаем сущность Клиент
 
