@@ -1,0 +1,29 @@
+# создает новую миграцию в db/migrate/ (parameters: NAME, VERSION)
+
+rake db:create_migration NAME=name_of_migration 
+
+# появляется миграция которую мы должны создать (папка db/migrate/цифры_имя_минрации.db), для этого внутри существует отдельный метод change, в котором можно писать свой код с определенным синтаксисом
+
+
+# применяет (выполняет) созданную миграцию (options: VERSION=x, 
+# VERBOSE=false, SCOPE=blog)
+
+rake db:migrate 
+
+
+# Возврат к предыдущей миграции (specify steps w/ STEP=n)
+
+rake db:rollback   
+
+ORM - object relational mapper (mapping) - у нас существует какой то объект и мы можем к нему обращаться
+
+команда tux - вызывает консоль для activerecord, там мы можем создать новые сущности
+
+Barber.create - создает объект уже в базе данных 
+(Barber.create :name => 'Mike Ehrmantraut')
+
+b = Barber.new - создает объект в памяти 
+и чтобы его сохранить в базу данных, нужно выполнить потом b.save
+(b = barber.new :name 'Roman' нажимаем 'enter' получаем #<Barber id: nil, name: "Roman", created_at: nil, updated_at: nil>)
+если после этой записи ввести b.new_record? консоль ответит 'true' т.е. 'да, запись
+новая', но если после этого выйти (exit) то запись не сохранится

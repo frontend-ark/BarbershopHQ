@@ -8,7 +8,7 @@ class CreateBarbers < ActiveRecord::Migration[7.0]
       # updated_at <-- дата обновления одного или нескольких полей
     end
 
-    Barber.create :name => 'Jessie Pinkman'
+    Barber.create :name => 'Jessie Pinkman' #данные в виде хэша
     Barber.create :name => 'Walter White'
     Barber.create :name => 'Gus Fring'
 
