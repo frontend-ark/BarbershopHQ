@@ -1,6 +1,6 @@
 class CreateClients < ActiveRecord::Migration[7.0]
   def change
-    create_table :client do |t| # создаем таблицу
+    create_table :clients do |t| # создаем таблицу
       t.text :name # в ней создаем поля c типом текст
       t.text :phone
       t.text :datestamp
