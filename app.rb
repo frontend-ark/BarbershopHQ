@@ -35,8 +35,17 @@ post '/visit' do
   @barber = params[:barber]
   @color = params[:color]
 
+  # name, phone, datestamp, barber, color
 
+  c = Client.new
 
-erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
+  c.name = @username # ламерский способ созранения данных в бд
+  c.phone = @phone
+  c.datestamp = @datetime
+  c.barber = @barber
+  c.color = @color
+  c.save
+
+  erb "<h2>Спасибо что записались!</h2>"
 
 end
