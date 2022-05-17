@@ -10,6 +10,12 @@ set :database, {adapter: "sqlite3", database: "barbershop.db"}
 # Создаем сущность Клиент
 
 class Client < ActiveRecord::Base
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :datestamp, presence: true
+  validates :color, presence: true
+# функция  парм-тр1  парм-тр2 
+#           символ     хэш
 end
 
 class Barber < ActiveRecord::Base
@@ -30,7 +36,7 @@ end
 post '/visit' do
 
 c = Client.new params[:client] #в квадратных скобках может быть все что угодно, главное чтобы в представлении было то же самое
-c.save
+c.save # этот метод перед тем как созранить выполняет валидацию надо только ее настроить
 
   erb "<h2>Спасибо что записались!</h2>"
 
