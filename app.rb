@@ -40,7 +40,8 @@ post '/visit' do
   if c.save # этот метод перед тем как созранить выполняет валидацию надо только ее настроить
     erb "<h2>Спасибо что записались!</h2>"
   else
-    erb "<h2>Error</h2>"
+    @error = c.errors.full_messages.first
+    erb :visit
   end
 
 end
