@@ -29,22 +29,8 @@ end
 
 post '/visit' do
 
-  @username = params[:username]
-  @phone = params[:phone]
-  @datetime = params[:datetime]
-  @barber = params[:barber]
-  @color = params[:color]
-
-  # name, phone, datestamp, barber, color
-
-  c = Client.new
-
-  c.name = @username # ламерский способ созранения данных в бд
-  c.phone = @phone
-  c.datestamp = @datetime
-  c.barber = @barber
-  c.color = @color
-  c.save
+c = Client.new params[:client] #в квадратных скобках может быть все что угодно, главное чтобы в представлении было то же самое
+c.save
 
   erb "<h2>Спасибо что записались!</h2>"
 
